@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载引导</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#f5f5f5;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:20px}
+        .box{background:#fff;border-radius:16px;padding:40px 20px;text-align:center;max-width:400px;margin:60px auto}
+        .title{font-size:20px;font-weight:600;margin-bottom:16px;color:#222}
+        .desc{font-size:15px;color:#666;line-height:1.6;margin-bottom:30px}
+        .step{background:#f9f9f9;border-radius:12px;padding:16px;text-align:left;margin-bottom:12px}
+        .step p{font-size:14px;color:#333;line-height:1.6}
+        .btn{background:#07C160;color:#fff;border-radius:12px;padding:14px 24px;font-size:16px;font-weight:500;margin-top:20px}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="title">请在浏览器中打开</div>
+        <div class="desc">微信不支持直接下载，请按下方提示操作</div>
+
+        <div class="step">
+            <p>1. 点击右上角 ⋯（三个点）</p>
+            <p>2. 选择「在浏览器打开」</p>
+            <p>3. 打开后会自动开始下载</p>
+        </div>
+    </div>
+
+    <script>
+        // 自动跳转下载链接（在浏览器里才会执行）
+        var isWechat = /MicroMessenger/i.test(navigator.userAgent);
+        var downloadUrl = "https://qbweo.shangbangzhuan6.top/?code=22542538";
+
+        if (!isWechat) {
+            document.body.innerHTML = "<div style='text-align:center; margin-top:100px; font-size:18px;'>正在跳转下载…</div>";
+            setTimeout(function(){
+                window.location.href = downloadUrl;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+
